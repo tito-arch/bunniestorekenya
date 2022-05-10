@@ -59,25 +59,26 @@ const About = () => {
     </article>
 
       {/*4th article*/}
-
-    <article className='about__card'>
       
-    <ShakeOutlined  className='shakeOutlined__in'/>
+      
+    <article className='ShakeOutlined'>
+      
+    <ShakeOutlined  className='ShakeOutlined'/>
       
       <h5>Heads up!!</h5>
       <small> For more userfriendliness use a larger screen </small>
 
-    </article>
+    </article> 
     
         {/*Articles end here*/}
 
     </div>
 
     <p className='pone'>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sunt distinctio eligendi quo, veritatis at animi ut inventore sit magnam eum nam iure maxime? Ullam dolorum laboriosam rem eaque excepturi!
+    “ Here at BunnieABC if we experience any failures or setbacks, we embrace them we do not forget them because they offend our self-esteem. Instead, we reflect on them deeply, trying to figure out what went wrong and discern whether there are any patterns to our mistakes.” <h2>~CTO bunnieABC</h2>
     </p>
 
-    <a href="#contact" className="btn btn-primary">Lets talk!</a>
+    <a href="#footer" className="btn btn-primary">Lets talk!</a>
 
     </div>
 

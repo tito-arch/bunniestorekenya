@@ -1,6 +1,6 @@
 .contacts__txt{
     text-align: center;
-    color: red;
+    color: var(--color-primary);
 }
 
 
@@ -37,7 +37,7 @@ input, textarea {
 
    .contacts__txt{
     text-align: center;
-    padding-top: 7rem;
+    padding-top: 20rem;
 }
 
    }
@@ -45,9 +45,28 @@ input, textarea {
    /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
    @media screen and  (max-width: 600px) { 
       
+
+
     .container.contacts__container{
         overflow:hidden;
+        padding-top: 2px;
+        padding-bottom: 2rem;
         
     }
+    .contacts__txt{
+        text-align: center;
+        padding-top: 32rem;
+    }
+
+
+input, textarea {
+    
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+    color: aqua;
+
+}
+
+   
       
    }

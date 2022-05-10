@@ -52,7 +52,7 @@
 
    .bunnie__logo{
     width: 100%;
-    aspect-ratio: 2/0.7;
+    aspect-ratio: 1.6/0.7;
     
     background: transparent;
     display: grid;
@@ -92,7 +92,7 @@
         width: 100%;
         aspect-ratio: 2/0.7;
         place-items: center;
-        padding-top: 9rem; 
+        padding-top: 5rem; 
        }
     
        .bunnie__logo-image{
@@ -107,17 +107,22 @@
 
 /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
 @media screen and  (max-width: 600px) {
-    .container{
-        height: 100vh;
-
-    }
+   .header__container{
+     padding-top: 0.5rem;
+   }
 
     .header__socials, .scroll__down{
-        display: block;
+        display:none;
     }
 
     .bunnie__logo{
         display: block;
-        padding-top: 0.2em;;
+        padding-top: 0em;
      }
-}
+
+     .head{
+        height: 108vh;
+        
+    }
+
+    }

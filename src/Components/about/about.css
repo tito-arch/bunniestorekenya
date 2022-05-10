@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5rem;
+    padding-left: 2.5rem;
     
     
 }
@@ -74,19 +75,20 @@
 
 .pone{
     margin: 2rem 0 2.6rem;
-    color: var(--color-light);
+    color: white;
 
 }
 
 /*================MEDIA QUERIES ===(MEDIUM DEVICES)=============*/
 @media screen and  (max-width: 1024px){
-   
+ 
+  
     
 }
 
 /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
 @media screen and  (min-width: 600px) {
-  .shakeOutlined{
+  .ShakeOutlined{
       display: none;
   }
 
@@ -97,6 +99,14 @@
   .about__me{
      display: none;
   }
+
+  .about__text{
+    text-align: center;
+    padding-bottom: 0.1rem;
+   
+}
+
+
 .about__cards{
     grid-template-columns: 1fr 1fr;
     gap: 1rem;

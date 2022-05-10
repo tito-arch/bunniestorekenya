@@ -71,13 +71,18 @@
     .experience__container{
         width: 100%;
         gap: 2rem;
+        padding-top: 1rem;
        
 
 
     }
+    .experience__title{
+        padding-top: 22rem;
+    }
     .experience__container > div{
         width: 77%;
         padding-left: 3.2rem;
+
         
     }
 }

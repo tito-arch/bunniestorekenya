@@ -53,28 +53,28 @@ const Services = () => {
          <article className="service">
 
 <div className="service__head">
-  <h3>PARTNERSHIP</h3>
+  <h3>A.I</h3>
 </div>
 <ul className='service__list'>
   
   <li>
     <BiCheck className='service__list-icon'/>
-    <p>Lorem ipsum dolor sit amet </p>
+    <p>Smart Assistance</p>
   </li>
   
   <li>
     <BiCheck className='service__list-icon'/>
-    <p>Lorem ipsum dolor sit amet </p>
+    <p>Automated Finacial Investing </p>
   </li>
  
   <li>
     <BiCheck className='service__list-icon'/>
-    <p>Lorem ipsum dolor sit amet </p>
+    <p>Inter-team Chatting Tools</p>
   </li>
   
   <li>
     <BiCheck className='service__list-icon'/>
-    <p>Lorem ipsum dolor sit amet </p>
+    <p>Robotics</p>
   </li>
   
 

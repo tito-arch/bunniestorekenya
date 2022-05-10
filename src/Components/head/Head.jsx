@@ -9,8 +9,8 @@ const Head = () => {
     <header className='head'>
        <div className="container header__container">
          <h5>Hello we are</h5>
-         <h1>BunniestoreABC</h1>
-         <h5 className='text-highlight'> Fullstack Developers</h5>
+         <h1>BunnieABC</h1>
+         <h5 className='text-highlight'>A tech and everything Tech startup.</h5>
       
     <CTA />
     <HeaderSocials />
@@ -19,9 +19,9 @@ const Head = () => {
        <div className='bunnie__logo-image'>
 
        {/*i need this image bug wount get squashed*/}
-       <img src={LOGO} className='me' alt="B..logo" />
+       <img src={LOGO} className='me' alt="Bunnielogo" />
 
-      <a href="#contact" className='scroll__down'>Scroll Down</a>
+      <a href="#contacts" className='scroll__down'>Scroll Down</a>
       </div> 
       </div>
 

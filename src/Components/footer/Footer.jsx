@@ -1,42 +1,62 @@
 import React from 'react'
 import './footer.css'
-
 import {FiInstagram} from 'react-icons/fi'
 import {BsWhatsapp} from 'react-icons/bs'
 import {AiFillGithub} from 'react-icons/ai'
 import {FaStackOverflow} from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+
+//import App from '../../App'
 
 const Footer = () => {
   return (
-    <footer>
 
-   
-      <div className="footer__logo">
+    <section id="footer">
+     
+     <footer>
+
+    
+       <div className='footer__logotag'>
+       <div className="footer__logo">
       
-      </div>  
-
-         <ul className='permalinks'>
-          <li><a href='#home'>HOME</a></li>
-          
-          <li><a href='#home'>STORE</a></li>
-          <li><a href='#home'>BLOG</a></li>
-          <li><a href='#home'>ABOUT</a></li>
-          <li><a href='#home'>COMMUNITY</a></li>
-         </ul>
+       </div> 
+       <h2>Bunnie-llc</h2>
+       </div>
+           
+           
+            
+      
+                <ul className='permalinks'>
+                
+                
+                <li><Link to="/store">STORE</Link></li>
+                <li><Link to="/blog">BLOG</Link></li>
+                <li><Link to="/terms">TERMS</Link></li>
+                <li><Link to="/community">COMMUNITY</Link></li>
+                <li><Link to="/forests">OUR FOREST</Link></li>
+                
+                
+                </ul>
 
          <div className="footer__socials">
-           <a href='https://instagram.com'><FiInstagram/></a>
-           <a href='https://whatsapp.com'><BsWhatsapp/></a>
-           <a href='https://github.com'><AiFillGithub/></a>
+           <a href='https://www.instagram.com/bunniestore.ke/'><FiInstagram/></a>
+           <a href='https://wa.me/message/QZV3WV2M74YZI1'><BsWhatsapp/></a>
+           <a href='https://Github.com/tito-arch'><AiFillGithub/></a>
            <a href='https://stackoverflow.com'><FaStackOverflow /></a>
          </div>
+         
+         
          <div className="footer__copyright">
-         <small><a href='#home'>Privacy policy</a></small>
-           <small>&copy; 2019~2022BunnieABC formerly Bunniestore.KE</small>
-           <small><a href='#home'>Terms & conditions</a></small>
+           
+          
+           <li><small>&copy; 2020~2022BunnieABC formerly Bunniestore.KE</small></li>
+           
+       
 
          </div>
-    </footer>
+      </footer>
+    
+      </section>
   )
 }
 

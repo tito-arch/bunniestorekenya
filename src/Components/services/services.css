@@ -1,6 +1,6 @@
 .services__txt{
     text-align: center;
-    color: pink;
+    color: var(--color-primary);
     
 }
 
@@ -83,7 +83,11 @@
     .services__container{
        grid-template-columns: 1fr; 
        gap: 1.5rem;
+       padding-top: 2rem;
 
+    }
+    .services__txt{
+        padding-top: 32rem;
     }
 
     
