@@ -19,8 +19,13 @@
 /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
 @media screen and  (max-width: 600px) {
     
+    .store{
+        padding-bottom: 10px;
+    }
     .shop__icon{
         width: 200px;
-        height: 200px;}
+        height: 200px;
+        
+    }
 
 }

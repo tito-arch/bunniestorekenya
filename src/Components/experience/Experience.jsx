@@ -31,7 +31,7 @@ const Experience = () => {
            
            <article className='experience__details'>
             <BsPatchCheckFill />
-            <h4>BOOTSTRAP</h4>
+            <h4>Vue JS</h4>
             <small>Intermediate</small>
            </article>
            
@@ -59,7 +59,7 @@ const Experience = () => {
            
            <article className='experience__details'>
             <BsPatchCheckFill />
-            <h4>HTML</h4>
+            <h4>Express JS</h4>
             <small>Experienced</small>
            </article>
            
@@ -71,7 +71,7 @@ const Experience = () => {
            
            <article className='experience__details'>
             <BsPatchCheckFill />
-            <h4>Node.Js</h4>
+            <h4>Node.JS</h4>
             <small>Intermediate</small>
            </article>
            
