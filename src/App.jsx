@@ -10,7 +10,7 @@
   import Terms from './Components/terms/Terms'
   import Error from './Components/Error'
 
-     ////////////////// ==END===//////////////////////////////////
+     ///////////////`/// ==END===//////////////////////////////////
 
 const App = () => {
   return (
