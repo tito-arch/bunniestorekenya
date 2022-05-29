@@ -15,7 +15,7 @@ const Store = (props) => {
       
        
        <div className='store'>
-       <h2>{name} is on production. Press Home.</h2>
+       <h2>{/*{name} is */}On production. Press Home.</h2>
         
          <div className='shop__icon'>
          
