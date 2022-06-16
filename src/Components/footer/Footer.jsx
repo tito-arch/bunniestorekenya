@@ -42,7 +42,7 @@ const Footer = () => {
            <a href='https://www.instagram.com/bunniestore.ke/'><FiInstagram/></a>
            <a href='https://wa.me/message/QZV3WV2M74YZI1'><BsWhatsapp/></a>
            <a href='https://Github.com/tito-arch'><AiFillGithub/></a>
-           <a href='https://stackoverflow.com'><FaStackOverflow /></a>
+           <a href='https://stackoverflow.com/users/14888787/ethical-hacker'><FaStackOverflow /></a>
          </div>
          
          
