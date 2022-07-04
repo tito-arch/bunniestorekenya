@@ -23,11 +23,7 @@ const Footer = () => {
        <h2>Bunnie-llc</h2>
        </div>
            
-           
-            
-      
-                <ul className='permalinks'>
-                
+            <ul className='permalinks'>
                 
                 <li><Link to="/store">STORE</Link></li>
                 <li><Link to="/blog">BLOG</Link></li>
@@ -40,7 +36,7 @@ const Footer = () => {
 
          <div className="footer__socials">
            <a href='https://www.instagram.com/bunniestore.ke/'><FiInstagram/></a>
-           <a href='https://wa.me/message/QZV3WV2M74YZI1'><BsWhatsapp/></a>
+           <a href='https://wa.me/message/2EI3SMJGFDBYE1'><BsWhatsapp/></a>
            <a href='https://Github.com/tito-arch'><AiFillGithub/></a>
            <a href='https://stackoverflow.com/users/14888787/ethical-hacker'><FaStackOverflow /></a>
          </div>
