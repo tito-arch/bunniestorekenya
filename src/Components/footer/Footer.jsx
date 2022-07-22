@@ -26,7 +26,7 @@ const Footer = () => {
             <ul className='permalinks'>
                 
                 <li><Link to="/store">STORE</Link></li>
-                <li><Link to="/blog">BLOG</Link></li>
+                <li><a href='https://blog.bunnieabc.com'></a></li>
                 <li><Link to="/terms">TERMS</Link></li>
                 <li><Link to="/community">COMMUNITY</Link></li>
                 <li><Link to="/forests">OUR FOREST</Link></li>
