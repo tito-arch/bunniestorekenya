@@ -6,6 +6,8 @@ import HeaderSocials from './HeaderSocials'
 
 const Head = () => {
   return (
+     
+    <section id='home'>
     <header className='head'>
        <div className="container header__container">
          <h5>Hello we are</h5>
@@ -27,6 +29,8 @@ const Head = () => {
 
    </div>
     </header>
+
+   </section>
   )
 }
 
