@@ -2,8 +2,8 @@
 
 
 
-.termsandconditions{
-   
+.termsandconditions {
+
     text-align: center;
     background-color: rgb(255, 255, 255);
     color: rgb(23, 24, 24);
@@ -11,20 +11,20 @@
     font-family: 'Dosis', sans-serif;
 }
 
-.termsandconditions >form {
+.termsandconditions>form {
 
-   padding: 2rem;
-  
+    padding: 2rem;
+
 
 }
+
 /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
-@media screen and  (max-width: 600px) { 
+@media screen and (max-width: 600px) {
 
-    .termsandconditions{
-   
-        
+    .termsandconditions {
+
+
         padding: 1rem;
-       
-    }
- }
 
+    }
+}
