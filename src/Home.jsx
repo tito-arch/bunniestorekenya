@@ -8,7 +8,7 @@ import Services from './Components/services/Services'
 //import Testimonials from './Components/testimonials/Testimonials'
 import Contacts from './Components/contacts/Contacts'
 import Footer from './Components/footer/Footer'
-////////////////// ==END===//////////////////////////////////////////////
+//////////////////=== END===//////////////////////////////////////////////
 
 const Home = () => {
   return (
