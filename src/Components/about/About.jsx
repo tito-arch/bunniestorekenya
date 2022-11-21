@@ -75,7 +75,7 @@ const About = () => {
           </div>
 
           <p className='pone'>
-            “ Here at BunnieABC if we experience any failures or setbacks, we embrace them we do not forget them because they offend our self-esteem. Instead, we reflect on them deeply, trying to figure out what went wrong and discern whether there are any patterns to our mistakes.” <h2>~CTO bunnieABC</h2>
+            “ Here at BunnieABC if we experience any failures or setbacks, we embrace them we do not forget them because they offend our self-esteem. Instead, we reflect on them deeply, trying to figure out what went wrong and discern whether there are any patterns to our mistakes.” <h2>~CTO bunnieABC.</h2>
           </p>
 
           <a href="#footer" className="btn btn-primary">Lets talk!</a>
