@@ -13,7 +13,11 @@ const Contacts = () => {
       </div>
 
       <div className="container contacts__container">
-        <form >
+        <form method="post">
+                  {/*TO ASSIST NETLIFY BOTS*/}
+         <input type="hidden" name="Portifolio contact form" value="contact" />
+                  {/*TO ASSIST NETLIFY BOTS*/}
+          
           <input type="text" name="name" placeholder="Your Full Name" required />
           <input type="email" name="email" placeholder="Your E-MAIL" required />
           <textarea name="message" rows="7" placeholder='Your Message' required ></textarea>
