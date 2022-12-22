@@ -1,9 +1,9 @@
 import React from 'react'
 import './footer.css'
-import { FiInstagram } from 'react-icons/fi'
-import { BsWhatsapp } from 'react-icons/bs'
-import { AiFillGithub } from 'react-icons/ai'
-import { FaStackOverflow } from 'react-icons/fa'
+import {FiInstagram} from 'react-icons/fi'
+import {BsWhatsapp} from 'react-icons/bs'
+import {AiFillGithub} from 'react-icons/ai'
+import {FaStackOverflow} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 //import App from '../../App'
@@ -56,8 +56,8 @@ const Footer = () => {
          </div>
 
       </footer>
-
-    </section>
+    
+      </section>
   )
 }
 
