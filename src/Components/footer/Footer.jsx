@@ -9,6 +9,9 @@ import { Link } from 'react-router-dom'
 //import App from '../../App'
 
 const Footer = () => {
+  // Get the current year
+  const date = new Date();
+  const year = date.getFullYear();
   return (
 
     <section id="footer">
@@ -45,7 +48,7 @@ const Footer = () => {
          <div className="footer__copyright">
            
           
-           <li><small>&copy; 2020~2022BunnieABC formerly Bunniestore.KE</small></li>
+           <li><small>&copy; 2020~{year}&nbsp;BunnieABC formerly Bunniestore.KE</small></li>
            
        
 
