@@ -1,27 +1,27 @@
-.head{
+.head {
     height: 100vh;
     padding-top: 2rem;
     overflow: hidden;
 }
 
-.header__container{
+.header__container {
     text-align: center;
     height: 100%;
     position: relative;
 }
 
-  /*====================================== CTA =============================================*/
+/*====================================== CTA =============================================*/
 
-  .cta{
-      margin-top: 2.5rem;
-      display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-  }
-   
-   /*====================================== HEADER SOCIALS  =============================================*/
+.cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+}
 
-   .header__socials::before{
+/*====================================== HEADER SOCIALS  =============================================*/
+
+.header__socials::before {
     content: "";
     width: 1px;
     height: 3rem;
@@ -29,9 +29,9 @@
 
 }
 
-   
-   
-   .header__socials{
+
+
+.header__socials {
 
     display: flex;
     flex-direction: column;
@@ -40,33 +40,33 @@
     position: absolute;
     left: 0;
     bottom: 3rem;
-   }
+}
 
-   .header__socials::after{
-       content: "";
-       width: 1px;
-       height: 2rem;
-       background: var(--color-primary);
+.header__socials::after {
+    content: "";
+    width: 1px;
+    height: 2rem;
+    background: var(--color-primary);
 
-   }
+}
 
-   .bunnie__logo{
+.bunnie__logo {
     width: 100%;
     aspect-ratio: 1.6/0.7;
-    
+
     background: transparent;
     display: grid;
-    place-items: center; 
-   }
+    place-items: center;
+}
 
-   .bunnie__logo-image{
+.bunnie__logo-image {
     border-radius: 2rem;
     overflow: hidden;
     padding-top: 1rem;
     padding-bottom: 0rem;
-   }
+}
 
-   .scroll__down{
+.scroll__down {
     position: absolute;
     right: 2.3rem;
     bottom: 5rem;
@@ -75,54 +75,55 @@
     font-size: 0.9rem;
 }
 
- /*================MEDIA QUERIES ===(MEDIUM DEVICES)=============*/
- @media screen and  (max-width: 1024px){
-    .container{
+/*================MEDIA QUERIES ===(MEDIUM DEVICES)=============*/
+@media screen and (max-width: 1024px) {
+    .container {
         height: 68vh;
         padding-top: 5rem;
 
     }
 
-    section{
+    section {
         margin-top: 6rem;
 
     }
 
-    .bunnie__logo{
+    .bunnie__logo {
         width: 100%;
         aspect-ratio: 2/0.7;
         place-items: center;
-        padding-top: 5rem; 
-       }
-    
-       .bunnie__logo-image{
+        padding-top: 5rem;
+    }
+
+    .bunnie__logo-image {
         border-radius: 1rem;
         overflow: hidden;
         padding-top: 3rem;
         padding-bottom: 0rem;
         place-items: center;
-       }
-    
+    }
+
 }
 
 /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
-@media screen and  (max-width: 600px) {
-   .header__container{
-     padding-top: 0.5rem;
-   }
-
-    .header__socials, .scroll__down{
-        display:none;
+@media screen and (max-width: 600px) {
+    .header__container {
+        padding-top: 0.5rem;
     }
 
-    .bunnie__logo{
+    .header__socials,
+    .scroll__down {
+        display: none;
+    }
+
+    .bunnie__logo {
         display: block;
         padding-top: 0em;
-     }
+    }
 
-     .head{
+    .head {
         height: 108vh;
-        
-    }
 
     }
+
+}

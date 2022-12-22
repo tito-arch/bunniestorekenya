@@ -1,5 +1,5 @@
 import React from 'react'
-  /////////////===components imported===///////////////////
+/////////////===components imported===///////////////////
 import Head from './Components/head/Head'
 import About from './Components/about/About'
 import Experience from './Components/experience/Experience'
@@ -8,28 +8,28 @@ import Services from './Components/services/Services'
 //import Testimonials from './Components/testimonials/Testimonials'
 import Contacts from './Components/contacts/Contacts'
 import Footer from './Components/footer/Footer'
-////////////////// ==END===//////////////////////////////////////////////
+//////////////////=== END===//////////////////////////////////////////////
 
 const Home = () => {
   return (
-          
-    
+
+
     <div>
-      
-            <Head />
-            <About />
-            <Experience/>
-            <Services />
-            {/*<Portifolio />
+
+      <Head />
+      <About />
+      <Experience />
+      <Services />
+      {/*<Portifolio />
             <Testimonials />*/}
-            <Contacts />
-            <Footer />
-            
-    
-</div>
-      
-  
-  )      
+      <Contacts />
+      <Footer />
+
+
+    </div>
+
+
+  )
 }
 
 export default Home

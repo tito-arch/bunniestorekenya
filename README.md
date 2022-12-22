@@ -1,20 +1,9 @@
 # Getting Started with Create React App
 
+To work at bunnie-llc you have to resonate with our vision, believe that the impossiple can happen and that you are unlimited, that the roots of what is holding you back have been cut off. @bunnieABC we believe in the impossible, our vision which is not very clear but we started and the vision has only gotten clearer. I suggest you start here! [Joel Osteen](https://youtu.be/6zhHRcXMt9g).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-------lets go bunnie-llc
-    |
-    |__
-    |   simple site to push our business to the web.
-    |               \
-    |            we help push other businesses to the web
-    |                      |
-    |                      |
-    |                      |->this part of the document is just me playing
-    |                      | around with pipes and hyphens  and underscores.
-    |                      |
-    |                                                                                   |
-    |___________________________________________________________________________________|
 
 
 

@@ -1,29 +1,29 @@
-.about__container{
+.about__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5rem;
     padding-left: 2.5rem;
-    
-    
+
+
 }
 
-.about__text{
+.about__text {
     text-align: center;
     padding-bottom: 2rem;
     padding-top: 1rem;
 }
 
 
-.about__me{
+.about__me {
     width: 100%;
     aspect-ratio: 2/1.5;
     border-radius: 2rem;
     background: linear-gradient(45deg, transparent, var(--color-primary), transparent);
     display: grid;
-    place-items: center; 
+    place-items: center;
 }
 
-.about__me-image{
+.about__me-image {
     border-radius: 2rem;
     overflow: hidden;
     transform: rotate(10deg);
@@ -31,17 +31,17 @@
 
 }
 
-.about__me-image:hover{
+.about__me-image:hover {
     transform: rotate(0)
 }
 
-.about__cards{
+.about__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
-.about__card{
+.about__card {
     background: var(--color-bg-variant);
     border: 1px solid transparent;
     border-radius: 1rem;
@@ -51,74 +51,72 @@
 
 }
 
-.about__card:hover{
+.about__card:hover {
     background: transparent;
     border-color: var(--color-primary-variant);
     cursor: default;
 }
 
-.about__icon{
+.about__icon {
     color: var(--color-primary);
     font-size: 1.4rem;
     margin-bottom: 1rem;
 }
 
-.about__card h5{
+.about__card h5 {
     font-size: 0.95rem;
 
 }
 
-.about__card small{
+.about__card small {
     font-size: 0.7rem;
     color: var(--color-light);
 }
 
-.pone{
+.pone {
     margin: 2rem 0 2.6rem;
     color: white;
 
 }
 
 /*================MEDIA QUERIES ===(MEDIUM DEVICES)=============*/
-@media screen and  (max-width: 1024px){
- 
-  
-    
-}
+@media screen and (max-width: 1024px) {}
 
 /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
-@media screen and  (min-width: 600px) {
-  .ShakeOutlined{
-      display: none;
-  }
+@media screen and (min-width: 600px) {
+    .ShakeOutlined {
+        display: none;
+    }
 
 }
 
 /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
-@media screen and  (max-width: 600px) {
-  .about__me{
-     display: none;
-  }
+@media screen and (max-width: 600px) {
+    .about__me {
+        display: none;
+    }
 
-  .about__text{
-    text-align: center;
-    padding-bottom: 0.1rem;
-   
-}
+    .about__text {
+        text-align: center;
+        padding-bottom: 0.1rem;
+
+    }
 
 
-.about__cards{
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-.about__content{
- text-align: center;
-}
-.about__content{
-    text-align: centre;
-}
-.about__content{
-    margin: 1.5rem 0;
-}
-}
+    .about__cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
 
+    .about__content {
+        text-align: center;
+    }
+
+    .about__content {
+        text-align: centre;
+    }
+
+    .about__content {
+        margin: 1.5rem 0;
+    }
+}

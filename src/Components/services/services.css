@@ -1,19 +1,19 @@
-.services__txt{
+.services__txt {
     text-align: center;
     color: var(--color-primary);
-    
+
 }
 
 
 
-.services__container{
-   
+.services__container {
+
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
 }
 
-.service{
+.service {
     background: var(--color-bg-variant);
     border-radius: 0 0 2rem 2rem;
     border: 1px solid var(--color-primary);
@@ -21,26 +21,26 @@
     transition: var(--transition);
 }
 
-.service:hover{
+.service:hover {
     background: transparent;
     border-color: var(--color-primary-variant);
     cursor: default;
 }
 
-.service__head{
+.service__head {
     background: var(--color-primary);
     padding: 2rem;
-   
-    box-shadow: 0 2rem 1rem rgba(0,0,0,0.1);
+
+    box-shadow: 0 2rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-.service__head h3{
+.service__head h3 {
     color: var(--color-bg);
     font-size: 1rem;
     text-align: center;
 }
 
-.service__list{
+.service__list {
     padding: 2rem;
 }
 
@@ -50,7 +50,7 @@
     margin-bottom: 0.8rem;
 }
 
-.servce__list-icon{
+.servce__list-icon {
     color: var(--color-primary);
     margin-top: 2px;
 
@@ -62,37 +62,35 @@
 
 
 /*================MEDIA QUERIES ===(MEDIUM DEVICES)=============*/
-@media screen and  (max-width: 1024px){
-  .services__container{
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding-top: 7rem;
-  }
+@media screen and (max-width: 1024px) {
+    .services__container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding-top: 7rem;
+    }
 
-  .services__txt{
-   
-    padding-top: 10rem;
+    .services__txt {
+
+        padding-top: 10rem;
+    }
+
+    .service {
+        height: auto;
+    }
 }
-  .service{
-      height: auto;
-  }
- }
- 
- /*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
- @media screen and  (max-width: 600px) { 
-    .services__container{
-       grid-template-columns: 1fr; 
-       gap: 1.5rem;
-       padding-top: 2rem;
+
+/*================MEDIA QUERIES ===(SMALL DEVICES)=============*/
+@media screen and (max-width: 600px) {
+    .services__container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding-top: 2rem;
 
     }
-    .services__txt{
+
+    .services__txt {
         padding-top: 32rem;
     }
 
-    
- }
- 
- 
- 
- 
+
+}
