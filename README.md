@@ -14,4 +14,4 @@ Available types:
  - chore: Other changes that don't modify src or test files
  - revert: Reverts a previous commit
 
-Commit messages not following these conventions will be declined.
+Pull reguest titles not following these conventions will be declined.
