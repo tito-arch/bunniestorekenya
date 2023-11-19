@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: bunnieabc.com
-Token: ac6faeaf70f47d8690a4c2448a3c162ebfefa2067932f9191b5e47fad792079c
