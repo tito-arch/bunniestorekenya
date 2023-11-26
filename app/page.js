@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Blogs from "./blog/Blogs";
 
 export default function Home() {
   return (
@@ -22,7 +23,8 @@ export default function Home() {
         {/* Header */}
         <div className="flex flex-col gap-4 items-center mt-10 ">
           <h1 className="text-4xl font-bold text-gray-800">
-            Building solutions for local businesses
+            Building scalable solutions for Large &amp; Small &amp; Medium
+            Enterprises
           </h1>
           <h2>Let&#39;s ship your product faster and better</h2>
           <p>The cost effective way to stand out and nuture leads</p>
@@ -93,6 +95,7 @@ export default function Home() {
             <article>{/* Some random quote */}</article>
           </div>
         </div>
+        <Blogs />
       </main>
       <footer>
         <h1 class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black">
