@@ -1,6 +1,3 @@
-import Image from "next/image";
-import Blogs from "./blog/Blogs";
-
 export default function Home() {
   return (
     <>
@@ -95,11 +92,19 @@ export default function Home() {
             <article>{/* Some random quote */}</article>
           </div>
         </div>
-        <Blogs />
       </main>
       <footer>
-        <h1 class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black">
+        <h1>
+          {/* className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black" */}
           {/* Bunnie Abc */}
+          <div>
+            <span className="text-4xl">Bunnie</span>
+            <span className="text-4xl">Abc</span>
+          </div>
+          <div>
+            <p>Garden Estates, Valley View</p>
+            <a href="/blog">Blog</a>
+          </div>
         </h1>
       </footer>
     </>
