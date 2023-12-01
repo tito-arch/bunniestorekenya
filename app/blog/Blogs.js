@@ -93,38 +93,49 @@ const MyArticles = () => {
   }
 
   return (
-    <section>
-      <div>
-        <h3>Tech Articles</h3>
-        <ul className="flex flex-col gap-2">
+    <section className="bg-gray-100">
+      <div className="m-3 ">
+        <h3 className="text-center">Tech Articles</h3>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
           {currentPosts.map((item, index) => (
-            <div key={index} className="flex border-black">
-              <div
-                className="flex w-[200px]"
-                style={{ backgroundColor: getRandomColor(), padding: "20px" }}
-              >
-                {generateRandomText(item.preview)}
+            <li
+              key={index}
+              className={`flex flex-col bg-white p-2  gap-2 rounded`}
+            >
+              {/* Date, Title, Image/Decorated Text Preview */}
+              <div className="flex flex-col md:flex-col-reverse sm:flex-col-reverse">
+                <div>
+                  <p className="text-gray-500">{item.pubDate}</p>
+                  <a href={item.link} target="_blank">
+                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  </a>
+                </div>
+                <div
+                  className="flex-shrink-0 rounded-md w-32 h-32 md:w-48 md:h-auto bg-gray-300"
+                  style={{ backgroundColor: getRandomColor() }}
+                >
+                  {generateRandomText(item.preview)}
+                </div>
               </div>
-              <div className="flex flex-col">
-                <a href={item.link} target={"_blank"}>
-                  <h3>{item.title}</h3>
-                </a>
-                <p>{item.description}</p>
-                <p>{item.pubDate}</p>
+
+              <div className="flex flex-col ">
+                <p className="text-gray-600 ">{item.description}</p>
               </div>
-            </div>
+            </li>
           ))}
         </ul>
         <div>
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
             disabled={currentPage === 1}
+            className="bg-blue-500 text-white px-4 py-2 mr-2 disabled:bg-gray-400"
           >
             Previous
           </button>
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
             disabled={indexOfLastPost >= items.length}
+            className="bg-blue-500 text-white px-4 py-2 disabled:bg-gray-400"
           >
             Next
           </button>
