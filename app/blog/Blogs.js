@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import he from "he";
-
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
   let color = "#";
@@ -72,6 +72,26 @@ const MyArticles = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const getDateString = (dateString) => {
+    const date = new Date(dateString);
+    const options = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    return date.toLocaleDateString("en-US", options); // Adjust locale as needed
+  };
+
+  const getTimeString = (dateString) => {
+    const date = new Date(dateString);
+    const hours = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    const isPM = hours >= 12;
+    const formattedHours = hours % 12 || 12; // Handle midnight and noon as 12
+
+    return `${formattedHours}:${minutes} ${isPM ? "PM" : "AM"}`;
+  };
+
   if (error) {
     return (
       <section>
@@ -93,51 +113,54 @@ const MyArticles = () => {
   }
 
   return (
-    <section className="bg-gray-100">
-      <div className="m-3 ">
+    <section className="bg-gray-100 min-h-screen flex flex-col justify-between">
+      <div className="m-3 xl:m-7 flex-1">
         <h3 className="text-center">Tech Articles</h3>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+        <ul
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8"
+          itemType="https://schema.org/Article"
+        >
           {currentPosts.map((item, index) => (
             <li
               key={index}
-              className={`flex flex-col bg-white p-2  gap-2 rounded`}
+              className={`flex flex-col bg-white p-2  gap-2 rounded `}
             >
               {/* Date, Title, Image/Decorated Text Preview */}
-              <div className="flex flex-col md:flex-col-reverse sm:flex-col-reverse">
-                <div>
-                  <p className="text-gray-500">{item.pubDate}</p>
-                  <a href={item.link} target="_blank">
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  </a>
-                </div>
-                <div
-                  className="flex-shrink-0 rounded-md w-32 h-32 md:w-48 md:h-auto bg-gray-300"
-                  style={{ backgroundColor: getRandomColor() }}
-                >
-                  {generateRandomText(item.preview)}
+              <div className="flex flex-col m-2 md:flex-col-reverse sm:flex-col-reverse border border-solid border-gray-500 p-4 rounded">
+                <div className="my-7">
+                  <h2 className="text-xl font-semibold leading-loose mt-4 uppercase text-center">
+                    -- {generateRandomText(item.preview)} --
+                  </h2>
                 </div>
               </div>
-
-              <div className="flex flex-col ">
-                <p className="text-gray-600 ">{item.description}</p>
+              <p className="text-gray-500">
+                {getDateString(item.pubDate)} {getTimeString(item.pubDate)}
+              </p>
+              <a href={item.link} target="_blank">
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              </a>
+              <div className="flex flex-col mt-auto ">
+                <p className="text-gray-600">
+                  {item.description.substring(0, 120)}...
+                </p>
               </div>
             </li>
           ))}
         </ul>
-        <div>
+        <div className="flex items-center justify-center gap-2 my-4">
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
+            className="flex items-center justify-center rounded-full p-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300"
             disabled={currentPage === 1}
-            className="bg-blue-500 text-white px-4 py-2 mr-2 disabled:bg-gray-400"
           >
-            Previous
+            <IoIosArrowBack size={25} />
           </button>
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
             disabled={indexOfLastPost >= items.length}
-            className="bg-blue-500 text-white px-4 py-2 disabled:bg-gray-400"
+            className="flex items-center justify-center rounded-full p-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300"
           >
-            Next
+            <IoIosArrowForward size={25} />
           </button>
         </div>
       </div>
