@@ -1,7 +1,5 @@
-// Install the 'express' package if you haven't already
-// npm install express
-
 // Create a file named server.js
+
 const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
