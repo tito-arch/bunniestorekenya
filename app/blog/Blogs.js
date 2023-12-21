@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import he from "he";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoMdCalendar } from "react-icons/io";
+
 const getRandomColor = () => {
   const letters = "0123456789ABCDEF";
   let color = "#";
@@ -11,6 +13,8 @@ const getRandomColor = () => {
   }
   return color;
 };
+
+const dynamicClass = "bg-f7f7f7";
 
 const generateRandomText = (text) => {
   return text.split("").map((letter, index) => (
@@ -25,6 +29,7 @@ const MyArticles = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(15);
   const [error, setError] = useState(null);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -95,7 +100,7 @@ const MyArticles = () => {
   if (error) {
     return (
       <section>
-        <div>
+        <div className="flex flex-col justify-center items-center">
           <h3>Latest Articles</h3>
           <ul>
             <p>Failed to fetch data, please try again later.</p>
@@ -113,18 +118,26 @@ const MyArticles = () => {
   }
 
   return (
-    <section className="bg-gray-100 min-h-screen flex flex-col justify-between">
-      <div className="m-3 xl:m-7 flex-1">
-        <h3 className="text-center">Tech Articles</h3>
+    <section
+      className={`min-h-screen flex flex-col justify-between xl:m-7 ${dynamicClass}`}
+    >
+      <div className="m-3 flex-1">
+        <div className="flex flex-col my-3 ">
+          <h1 className="text-2xl font-bold">BunnieAbC Newsroom</h1>
+        </div>
         <ul
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:mx-9"
           itemType="https://schema.org/Article"
         >
           {currentPosts.map((item, index) => (
             <li
               key={index}
-              className={`flex flex-col bg-white p-2  gap-2 rounded `}
+              className={`flex flex-col p-2 relative border border-slate-800 gap-2 rounded min-h-[23em] max-h-auto ${
+                isClicked ? "animate-border" : ""
+              }`}
+              onClick={() => setIsClicked(!isClicked)}
             >
+              {" "}
               {/* Date, Title, Image/Decorated Text Preview */}
               <div className="flex flex-col m-2 md:flex-col-reverse sm:flex-col-reverse border border-solid border-gray-500 p-4 rounded">
                 <div className="my-7">
@@ -133,9 +146,12 @@ const MyArticles = () => {
                   </h2>
                 </div>
               </div>
-              <p className="text-gray-500">
-                {getDateString(item.pubDate)} {getTimeString(item.pubDate)}
-              </p>
+              <div className="flex gap-1">
+                <IoMdCalendar size={25} />
+                <p className="text-gray-500">
+                  {getDateString(item.pubDate)} {getTimeString(item.pubDate)}
+                </p>
+              </div>
               <a href={item.link} target="_blank">
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
               </a>
@@ -150,7 +166,7 @@ const MyArticles = () => {
         <div className="flex items-center justify-center gap-2 my-4">
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
-            className="flex items-center justify-center rounded-full p-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300"
+            className="flex items-center justify-center rounded-full p-4 bg-gradient-to-l from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300"
             disabled={currentPage === 1}
           >
             <IoIosArrowBack size={25} />
