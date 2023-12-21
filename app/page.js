@@ -1,3 +1,4 @@
+import UnsplashImage from "@/src/api/UnsplashImage";
 export default function Home() {
   return (
     <>
@@ -23,6 +24,10 @@ export default function Home() {
             Building scalable solutions for Large &amp; Small &amp; Medium
             Enterprises
           </h1>
+          <div>
+            <h1>Techy Patterns</h1>
+            <UnsplashImage query="pattern" />
+          </div>
           <h2>Let&#39;s ship your product faster and better</h2>
           <p>The cost effective way to stand out and nuture leads</p>
         </div>
