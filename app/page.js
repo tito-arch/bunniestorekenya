@@ -1,5 +1,38 @@
 import UnsplashImage from "@/src/api/UnsplashImage";
+import Image from "next/image";
 export default function Home() {
+  const teamMembers = [
+    {
+      name: "Titus",
+      role: "Founder",
+      imageUrl: "/assets/Ihwagi-Titus.jpeg",
+    },
+    {
+      name: "Muna",
+      role: "Co-Founder",
+      imageUrl: "/assets/Muna-Said.jpeg",
+    },
+    {
+      name: "Titus",
+      role: "Founder",
+      imageUrl: "/assets/Ihwagi-Titus.jpeg",
+    },
+    {
+      name: "Muna",
+      role: "Co-Founder",
+      imageUrl: "/assets/Muna-Said.jpeg",
+    },
+    {
+      name: "Titus",
+      role: "Founder",
+      imageUrl: "/assets/Ihwagi-Titus.jpeg",
+    },
+    {
+      name: "Muna",
+      role: "Co-Founder",
+      imageUrl: "/assets/Muna-Said.jpeg",
+    },
+  ];
   return (
     <>
       <main className="flex min-h-screen flex-col p-5 gap-3 ">
@@ -19,15 +52,11 @@ export default function Home() {
           </div>
         </div>
         {/* Header */}
-        <div className="flex flex-col gap-4 items-center mt-10 ">
+        <div className="flex flex-col gap-4 items-center mt-10 bg-edeffe">
           <h1 className="text-4xl font-bold text-gray-800">
             Building scalable solutions for Large &amp; Small &amp; Medium
             Enterprises
           </h1>
-          <div>
-            <h1>Techy Patterns</h1>
-            <UnsplashImage query="pattern" />
-          </div>
           <h2>Let&#39;s ship your product faster and better</h2>
           <p>The cost effective way to stand out and nuture leads</p>
         </div>
@@ -43,58 +72,43 @@ export default function Home() {
             Let Your Customers Know You Mean Business
           </h2>
         </div>
-        <div className="flex flex-col md:flex-row gap-2">
-          <div className="flex flex-col items-center justify-center p-3 gap-2">
+        <div className="flex flex-col md:flex-row gap-2 ">
+          <div className="flex-1 flex flex-col items-center justify-center p-3 gap-2">
             {/* Icon */}
             <h2>Experience the Evolution</h2>
             <p className="text-center">
               Start with the simplicity of user-friendly web apps, tailored to
-              your needs. As your business grows, seamlessly transition to the
-              sophistication of AI-powered customer care, providing unparalleled
-              support and engagement.
+              your needs.
             </p>
           </div>
-          <div className="flex flex-col items-center justify-center p-3 gap-2">
+          <div className="flex-1 flex flex-col items-center justify-center p-3 gap-2">
             {/* Icon */}
             <h2>Web App Expertise</h2>
             <p className="text-center">
               Unlock the potential of your business with our web app development
-              services. Our solutions begin with simplicity and scale up to the
-              complexity of AI-driven customer care, ensuring a seamless and
-              future-ready digital experience.
+              service.
             </p>
           </div>
-          <div className="flex flex-col items-center justify-center p-3 gap-2">
+          <div className="flex-1 flex flex-col items-center justify-center p-3 gap-2">
             {/* Icon */}
             <h2>AI-Powered Customer Care</h2>
             <p className="text-center">
               Move beyond the basics. Elevate your customer interactions with
-              our AI-powered solutions. From handling routine queries to
-              delivering personalized assistance, we transform customer care
-              into a strategic asset for your business
+              AI-powered solutions from our partners.
             </p>
           </div>
         </div>
-        <div className="w-full bg-black p-7">
+
+        <div className="w-full bg-black p-7 mx-0">
           <h2 className="text-white">BunnieAbc</h2>
           <h3 className="text-white">Nrb, KE</h3>
         </div>
-        <div className="skew-y-1/2 bg-gray-200 p-8 mt-5">
-          <h2>Meet the team</h2>
-          <div>
-            <section>
-              {/* 
-              <Image
-                    src="/images/1.jpg"
-                    alt="Picture of the author"
-                    width={500}
-                    height={500}
-                  /> 
-                  */}
-              <h3>Name</h3>
-              <p>Head of Product Design</p>
-            </section>
-            <article>{/* Some random quote */}</article>
+        <div className="flex flex-col">
+          <h2 className="pb-2">Meet the team</h2>
+          <div className="flex overflow-x-auto justify-center gap-4">
+            {teamMembers.map((member, index) => (
+              <TeamCard key={index} {...member} />
+            ))}
           </div>
         </div>
       </main>
@@ -106,12 +120,26 @@ export default function Home() {
             <span className="text-4xl">Bunnie</span>
             <span className="text-4xl">Abc</span>
           </div>
-          <div>
-            <p>Garden Estates, Valley View</p>
-            <a href="/blog">Blog</a>
-          </div>
         </h1>
+        <div>
+          <p>Garden Estates, Valley View</p>
+          <a href="/blog">Blog</a>
+        </div>
       </footer>
     </>
   );
 }
+
+// Co-Founders of Bunnie Abc card
+
+const TeamCard = ({ name, role, imageUrl }) => {
+  return (
+    <div style={{ flex: "0 0 auto", marginRight: "10px", textAlign: "center" }}>
+      <Image src={imageUrl} alt={name} width={200} height={200} />
+      <div className="mt-5">
+        <div className="font-bold">{name}</div>
+        <p className="italic">{role}</p>
+      </div>
+    </div>
+  );
+};
