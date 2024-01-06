@@ -52,19 +52,32 @@ export default function Home() {
           </div>
         </div>
         {/* Header */}
-        <div className="flex flex-col gap-4 items-center mt-10 bg-edeffe">
-          <h1 className="text-4xl font-bold text-gray-800">
-            Building scalable solutions for Large &amp; Small &amp; Medium
-            Enterprises
-          </h1>
-          <h2>Let&#39;s ship your product faster and better</h2>
-          <p>The cost effective way to stand out and nuture leads</p>
+        <div className=" flex flex-col-reverse p-4 sm:flex-row gap-4 items-start mt-10 sm:p-8  lg:justify-around">
+          <div>
+            <h1 className="text-4xl sm:text-6xl font-bold text-gray-800 mt-8 sm:leading-[5rem]">
+              Building scalable Apps for <br /> Small, Medium &amp; <br />
+              Large Enterprises
+            </h1>
+            <p>We are pushing the advent of businesses to the web </p>
+            <button className=" mx-auto sm:ml-0 flex items-center mt-4 justify-center rounded px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300">
+              Learn More
+            </button>
+          </div>
+          <div className="mx:auto sm:mr-0">
+            <Image
+              src="/assets/next-v2.png"
+              width={500}
+              height={500}
+              alt="Picture of the author"
+            />
+          </div>
         </div>
         {/* center div */}
-        <div className="flex flex-col items-center p-2 ">
-          <p>
+        <div className="flex flex-col items-center p-2 my-3">
+          <p className="sm:text-center text-2xl w-full sm:w-3/4 font-bold  bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 sm:text-4xl">
             From crafting simple and intuitive web applications to sophisticated
-            AI-powered customer care, we redefine your digital presence.
+            AI-powered customer care integrations, we redefine your digital
+            presence.
           </p>
         </div>
         <div>
