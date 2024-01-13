@@ -30,6 +30,7 @@ const MyArticles = () => {
   const [postsPerPage] = useState(15);
   const [error, setError] = useState(null);
   const [isClicked, setIsClicked] = useState(false);
+  const [links, setLinks] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -70,7 +71,7 @@ const MyArticles = () => {
 
     fetchData();
   }, []);
-
+  console.log(links);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = items.slice(indexOfFirstPost, indexOfLastPost);
