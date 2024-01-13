@@ -174,7 +174,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col">
           <h2 className="pb-2 sm:pb-3 text-center text-3xl font-bold">
-            Meet the team
+            Meet The Core Team
           </h2>
           <div className="flex overflow-x-auto justify-center gap-4">
             {teamMembers.map((member, index) => (
@@ -183,19 +183,25 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer>
-        <h1>
-          {/* className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black" */}
-          {/* Bunnie Abc */}
-          <div>
-            <span className="text-4xl">Bunnie</span>
-            <span className="text-4xl">Abc</span>
-          </div>
-        </h1>
+      <footer className="pt-3 px-5">
         <div>
-          <p>Garden Estates, Valley View</p>
-          <a href="/blog">Blog</a>
+          <Link href="/" legacyBehavior>
+            <a>
+              <div className="flex items-center">
+                <Image
+                  src={logo}
+                  alt="BunnieABC Logo"
+                  width={50}
+                  height={50}
+                  className="rounded-full"
+                />
+              </div>
+            </a>
+          </Link>
+          <p>Bunnie-LLC</p>
+          <small>Software Company</small>
         </div>
+        <div></div>
       </footer>
     </>
   );
