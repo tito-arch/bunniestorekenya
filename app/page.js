@@ -5,9 +5,37 @@ import evolution from "../public/assets/evolution.png";
 import chat from "../public/assets/chat.png";
 import app from "../public/assets/app.png";
 import logo from "../public/assets/logo.png";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+// Carousel
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import Leads from "@/components/leads";
 
 export default function Home() {
   const teamMembers = [
+    {
+      name: "Titus",
+      role: "Founder",
+      imageUrl: "/assets/Ihwagi-Titus.jpeg",
+    },
+    {
+      name: "Muna",
+      role: "Co-Founder",
+      imageUrl: "/assets/Muna-Said.jpeg",
+    },
     {
       name: "Titus",
       role: "Founder",
@@ -172,16 +200,73 @@ export default function Home() {
           <h2 style={gradientStyle}>BunnieAbc</h2>
           <h3 style={gradientStyle}>Nrb, KE</h3>
         </div>
+        {/* Accordion */}
+        <div className="px-2">
+          <p className="text-center text-lg font-bold">
+            Frequently Asked Questions
+          </p>
+          <Accordion type="single" collapsible className="sm:w-3/4 mx-auto">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Is it responsive?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It works on all screen sizes.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Is it responsive?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It works on all screen sizes.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger>Is it responsive?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It works on all screen sizes.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5">
+              <AccordionTrigger>Is it responsive?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It works on all screen sizes.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
         <div className="flex flex-col">
           <h2 className="pb-2 sm:pb-3 text-center text-3xl font-bold">
             Meet The Core Team
           </h2>
-          <div className="flex overflow-x-auto justify-center gap-4">
+          <div className="hidden md:flex overflow-x-auto justify-center gap-4">
             {teamMembers.map((member, index) => (
               <TeamCard key={index} {...member} />
             ))}
           </div>
+          {/* New component */}
+
+          <Carousel className="w-3/4 mx-auto max-w-sm sm:hidden">
+            <CarouselContent className="-ml-1">
+              {teamMembers.map((member, index) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-1 md:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="p-1">
+                    <TeamCard {...member} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
+        <Leads />
       </main>
       <footer className="pt-3 px-5">
         <div>
@@ -211,11 +296,42 @@ export default function Home() {
 
 const TeamCard = ({ name, role, imageUrl }) => {
   return (
-    <div style={{ flex: "0 0 auto", marginRight: "10px", textAlign: "center" }}>
-      <Image src={imageUrl} alt={name} width={200} height={200} />
-      <div className="mt-5">
-        <div className="font-bold">{name}</div>
-        <p className="italic">{role}</p>
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <div className="relative mb-4">
+        <Image
+          src={imageUrl}
+          alt={name}
+          width={200}
+          height={200}
+          className="rounded-full"
+        />
+      </div>
+      <div className="text-center">
+        <h3 className="text-xl font-bold mb-2">{name}</h3>
+        <p className="italic text-gray-600">{role}</p>
+      </div>
+      <div className="mt-4 flex justify-center">
+        <a
+          href="#"
+          target="_blank"
+          className="text-blue-500 hover:text-blue-700 mx-2"
+        >
+          <FaTwitter size={24} />
+        </a>
+        <a
+          href="#"
+          target="_blank"
+          className="text-blue-500 hover:text-blue-700 mx-2"
+        >
+          <FaLinkedin size={24} />
+        </a>
+        <a
+          href="#"
+          target="_blank"
+          className="text-gray-800 hover:text-gray-600 mx-2"
+        >
+          <FaGithub size={24} />
+        </a>
       </div>
     </div>
   );
