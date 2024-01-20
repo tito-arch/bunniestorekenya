@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { toast } from "sonner";
 
 export default function Leads() {
   const form = useForm();
+  // toast("Received.") // This will show a success toast
 
   const onSubmit = async (formData) => {
     try {
@@ -18,12 +20,23 @@ export default function Leads() {
           },
         }
       );
-      // Handle the response as needed
-      console.log(response);
+      // Handle the response
+      if (response.data.success) {
+        // Form submission was successful
+
+        toast.message("Request submitted successfully", {
+          description: new Date().toLocaleString(),
+        });
+      } else {
+        // Form submission failed
+        console.error("Form submission failed:", response.data.error);
+        toast.error("Form submission failed");
+      }
     } catch (error) {
       // Handle the error as needed
     }
   };
+
   return (
     <div className="w-full sm:w-3/4 mx-auto mt-8">
       <hr />
