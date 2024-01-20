@@ -7,7 +7,8 @@ import { toast } from "sonner";
 
 export default function Leads() {
   const form = useForm();
-  // toast("Received.") // This will show a success toast
+  // toast(".") // This will show a success toast
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const onSubmit = async (formData) => {
     try {
@@ -27,13 +28,15 @@ export default function Leads() {
         toast.message("Request submitted successfully", {
           description: new Date().toLocaleString(),
         });
+        // Reset the form
+        form.reset();
       } else {
         // Form submission failed
         console.error("Form submission failed:", response.data.error);
         toast.error("Form submission failed");
       }
     } catch (error) {
-      // Handle the error as needed
+      toast.error("Form submission failed: Server Error");
     }
   };
 
