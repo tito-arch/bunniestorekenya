@@ -256,7 +256,8 @@ export default function Home() {
                 What technologies do you specialize in?
               </AccordionTrigger>
               <AccordionContent>
-                Next Js, React Js, Node Js, Express Js, MongoDB, Firebase,
+                Next Js, React Js, Node Js, Express Js,Python, MongoDB,
+                Firebase,
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -265,7 +266,7 @@ export default function Home() {
           <h2 className="pb-2 sm:pb-3 text-center text-3xl font-bold">
             Meet The Core Team
           </h2>
-          <div className="hidden md:flex overflow-x-auto justify-center gap-4">
+          <div className="hidden sm:mx-5 mx-auto md:flex overflow-x-auto justify-center gap-4 bg-gradient-to-r from-white via-transparent to-white">
             {teamMembers.map((member, index) => (
               <TeamCard key={index} {...member} />
             ))}
@@ -273,7 +274,7 @@ export default function Home() {
           {/* New component */}
 
           <Carousel className="w-3/4 mx-auto max-w-sm sm:hidden">
-            <CarouselContent className="-ml-1">
+            <CarouselContent className="-ml-1 mx-auto">
               {teamMembers.map((member, index) => (
                 <CarouselItem
                   key={index}
@@ -319,8 +320,8 @@ export default function Home() {
 
 const TeamCard = ({ name, role, imageUrl }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <div className="relative mb-4">
+    <div className="bg-white p-6 rounded-lg shadow-lg mx-auto">
+      <div className="relative mb-4 flex mx-auto">
         <Image
           src={imageUrl}
           alt={name}
