@@ -266,7 +266,7 @@ export default function Home() {
           <h2 className="pb-2 sm:pb-3 text-center text-3xl font-bold">
             Meet The Core Team
           </h2>
-          <div className="hidden sm:mx-5 mx-auto md:flex overflow-x-auto justify-center gap-4 bg-gradient-to-r from-white via-transparent to-white">
+          <div className="hidden sm:mx-5 mx-auto md:flex overflow-x-auto justify-center gap-4 bg-gradient-to-r from-white via-transparent to-white py-6">
             {teamMembers.map((member, index) => (
               <TeamCard key={index} {...member} />
             ))}
