@@ -10,7 +10,7 @@ export default function Leads() {
   const onSubmit = async (formData) => {
     try {
       const response = await axios.post(
-        "https://bunnie-llc/submit-form",
+        "https://bunnie-llc.vercel.app/submit-form",
         formData,
         {
           headers: {
