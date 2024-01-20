@@ -2,15 +2,28 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function Leads() {
   const form = useForm();
 
-  function onSubmit(data) {
-    console.log(data);
-    // Add your logic for form submission here
-  }
-
+  const onSubmit = async (formData) => {
+    try {
+      const response = await axios.post(
+        "https://bunnie-llc/submit-form",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      // Handle the response as needed
+      console.log(response);
+    } catch (error) {
+      // Handle the error as needed
+    }
+  };
   return (
     <div className="w-full sm:w-3/4 mx-auto mt-8">
       <hr />
