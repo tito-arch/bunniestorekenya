@@ -8,7 +8,6 @@ import { toast } from "sonner";
 export default function Leads() {
   const form = useForm();
   // toast(".") // This will show a success toast
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const onSubmit = async (formData) => {
     try {
