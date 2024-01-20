@@ -207,33 +207,56 @@ export default function Home() {
           </p>
           <Accordion type="single" collapsible className="sm:w-3/4 mx-auto">
             <AccordionItem value="item-1">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionTrigger>
+                Can you redesign an existing website?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Absolutely! We offer website redesign services to enhance the
+                look, functionality, and user experience of existing websites.
+                Contact us with details about your current site, and we can
+                discuss the possibilities for improvement.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>Is it responsive?</AccordionTrigger>
+              <AccordionTrigger>
+                Do you provide ongoing maintenance and support services?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It works on all screen sizes.
+                Yes, we offer ongoing maintenance and support packages to ensure
+                that your website remains secure, up-to-date, and optimized. Our
+                team is available for troubleshooting, updates, and enhancements
+                as needed.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger>Is it responsive?</AccordionTrigger>
+              <AccordionTrigger>
+                How can I request a quote for my project?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It works on all screen sizes.
+                To request a quote, please visit our Contact page or fill out
+                the inquiry form below. Provide as much detail as possible about
+                your project, and our team will get back to you promptly with a
+                customized quote.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
-              <AccordionTrigger>Is it responsive?</AccordionTrigger>
+              <AccordionTrigger>
+                What is the typical timeline for completing a web development
+                project?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It works on all screen sizes.
+                Project timelines vary based on the complexity and scope of the
+                project. We will provide you with a detailed project timeline
+                during the initial consultation phase, outlining key milestones
+                and deadlines.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-5">
-              <AccordionTrigger>Is it responsive?</AccordionTrigger>
+              <AccordionTrigger>
+                What technologies do you specialize in?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It works on all screen sizes.
+                Next Js, React Js, Node Js, Express Js, MongoDB, Firebase,
               </AccordionContent>
             </AccordionItem>
           </Accordion>
