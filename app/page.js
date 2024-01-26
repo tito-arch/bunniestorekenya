@@ -320,7 +320,8 @@ export default function Home() {
                 <p className="font-bold text-lg">Bunnie-LLC</p>
                 <small>Software Company</small>
               </div>
-              <nav className="col-span-1 md:col-span-1 lg:col-span-2">
+
+              <nav className="col-span-2 md:col-span-1 lg:col-span-2  ">
                 <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                   Product
                 </p>
@@ -355,7 +356,7 @@ export default function Home() {
                   Pricing
                 </a>
               </nav>
-              <nav className="col-span-1 md:col-span-1 lg:col-span-2 ">
+              <nav className="col-span-2 md:col-span-1 lg:col-span-2 ">
                 <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                   About
                 </p>
@@ -413,6 +414,7 @@ export default function Home() {
                   Jobs
                 </a>
               </nav>
+
               <div className="col-span-3">
                 <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                   SUBSCRIBE TO OUR NEWSLETTER
