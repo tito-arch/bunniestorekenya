@@ -1,188 +1,152 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import he from "he";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useState, useEffect } from "react";
+import MyArticlesData from "../server/getBlogs";
 import { IoMdCalendar } from "react-icons/io";
+import Image from "next/image";
+import LoadingGif from "../../public/assets/BunnieLoading.gif";
 
-const getRandomColor = () => {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-};
-
-const dynamicClass = "bg-f7f7f7";
-
-const generateRandomText = (text) => {
-  return text.split("").map((letter, index) => (
-    <span key={index} style={{ color: getRandomColor() }}>
-      {letter}{" "}
-    </span>
-  ));
-};
-
-const MyArticles = () => {
-  const [items, setItems] = useState([]);
+function Blogs() {
+  const [articlesData, setArticlesData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(15);
-  const [error, setError] = useState(null);
-  const [isClicked, setIsClicked] = useState(false);
-  const [links, setLinks] = useState([]);
+  const [postsPerPage] = useState(9);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
-        const res = await fetch("https://www.bunnieabc.com/index.xml");
-        const xmlText = await res.text();
+        // Fetch article data from the server
+        const data = await MyArticlesData();
 
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+        // Update state with the fetched data
+        setArticlesData(data);
+        console.log(articlesData);
 
-        const itemNodes = xmlDoc.querySelectorAll("item");
-
-        const items = Array.from(itemNodes).map((itemNode) => {
-          const title = he.decode(itemNode.querySelector("title").textContent);
-          const preview = title
-            .split(" ")
-            .slice(0, 3)
-            .map((word) => word.charAt(0))
-            .join("");
-
-          return {
-            title,
-            link: itemNode.querySelector("link").textContent,
-            pubDate: itemNode.querySelector("pubDate").textContent,
-            description: he.decode(
-              itemNode.querySelector("description").textContent
-            ),
-            preview,
-          };
-        });
-
-        setItems(items);
+        // Set loading to false
+        setLoading(false);
       } catch (error) {
-        setError(true);
-        console.error("Error fetching or parsing XML data:", error);
+        console.error("Error fetching articles:", error);
+        // Handle the error as needed
+        setLoading(false);
       }
-    }
+    };
 
+    // Fetch data when the component mounts
     fetchData();
   }, []);
-  console.log(links);
+
+  // Logic for pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = items.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = articlesData.slice(indexOfFirstPost, indexOfLastPost);
 
+  // Function to change the current page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const getDateString = (dateString) => {
-    const date = new Date(dateString);
+  // Format date string
+  const formatDate = (dateString) => {
     const options = {
       year: "numeric",
-      month: "short",
+      month: "long",
       day: "numeric",
     };
-    return date.toLocaleDateString("en-US", options); // Adjust locale as needed
+    return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
-  const getTimeString = (dateString) => {
-    const date = new Date(dateString);
-    const hours = date.getHours();
-    const minutes = date.getMinutes().toString().padStart(2, "0");
-    const isPM = hours >= 12;
-    const formattedHours = hours % 12 || 12; // Handle midnight and noon as 12
-
-    return `${formattedHours}:${minutes} ${isPM ? "PM" : "AM"}`;
-  };
-
-  if (error) {
-    return (
-      <section>
-        <div className="flex flex-col justify-center items-center">
-          <h3>Latest Articles</h3>
-          <ul>
-            <p>Failed to fetch data, please try again later.</p>
-          </ul>
-          <a
-            href={"https://bunnieabc.com/"}
-            target={"_blank"}
-            rel={"noopener noreferrer"}
-          >
-            Visit Bunnie ABC
-          </a>
-        </div>
-      </section>
-    );
+  // Truncate text for uniformity
+  function truncateText(text, max_length = 120) {
+    // Truncates text to a given length with ellipses
+    if (text.length <= max_length) {
+      return text;
+    }
+    return text.substring(0, max_length - 3) + "...";
   }
 
   return (
-    <section
-      className={`min-h-screen flex flex-col justify-between xl:m-7 ${dynamicClass}`}
-    >
-      <div className="m-3 flex-1">
-        <div className="flex flex-col my-3 ">
-          <h1 className="text-2xl font-bold">BunnieAbC Newsroom</h1>
+    <div className="md:ml-8 my-3">
+      {loading ? (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <div className="rounded-full overflow-hidden">
+              <Image className="w-22 h-22" src={LoadingGif} alt="Loading GIF" />
+            </div>
+            <h1 className="text-2xl font-semibold mt-4">Hmmm! </h1>
+          </div>
         </div>
-        <ul
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:mx-9"
-          itemType="https://schema.org/Article"
-        >
-          {currentPosts.map((item, index) => (
-            <li
-              key={index}
-              className={`flex flex-col p-2 relative border border-slate-800 gap-2 rounded min-h-[23em] max-h-auto ${
-                isClicked ? "animate-border" : ""
-              }`}
-              onClick={() => setIsClicked(!isClicked)}
-            >
-              {" "}
-              {/* Date, Title, Image/Decorated Text Preview */}
-              <div className="flex flex-col m-2 md:flex-col-reverse sm:flex-col-reverse border border-solid border-gray-500 p-4 rounded">
-                <div className="my-7">
-                  <h2 className="text-xl font-semibold leading-loose mt-4 uppercase text-center">
-                    -- {generateRandomText(item.preview)} --
-                  </h2>
+      ) : (
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:m-0 ">
+            {currentPosts.map((article, index) => (
+              <div
+                key={index}
+                className="bg-white max-w-sm rounded-lg shadow-md overflow-hidden "
+              >
+                <Image
+                  src={article.image}
+                  alt={article.title || "No Title"}
+                  className="w-full"
+                  width={300}
+                  height={300}
+                />
+                <div className="p-4">
+                  <div className="flex justify-between items-start">
+                    <div className="flex items-center">
+                      <p className="text-gray-800 font-semibold">
+                        {article.author || "Unknown"}
+                      </p>
+                      <IoMdCalendar className="ml-2 text-gray-400" />
+                      <p className="text-gray-400 ml-1">
+                        {formatDate(article.datePublished)}
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 text-xl font-bold hover:underline"
+                  >
+                    {truncateText(article.title || "No Title", 120)}
+                  </a>
+                  <p className="text-gray-700">
+                    Description:{" "}
+                    {truncateText(
+                      article.description || "No description available.",
+                      120
+                    )}
+                  </p>
                 </div>
               </div>
-              <div className="flex gap-1">
-                <IoMdCalendar size={25} />
-                <p className="text-gray-500">
-                  {getDateString(item.pubDate)} {getTimeString(item.pubDate)}
-                </p>
-              </div>
-              <a href={item.link} target="_blank">
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              </a>
-              <div className="flex flex-col mt-auto ">
-                <p className="text-gray-600">
-                  {item.description.substring(0, 120)}...
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div className="flex items-center justify-center gap-2 my-4">
-          <button
-            onClick={() => setCurrentPage(currentPage - 1)}
-            className="flex items-center justify-center rounded-full p-4 bg-gradient-to-l from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300"
-            disabled={currentPage === 1}
-          >
-            <IoIosArrowBack size={25} />
-          </button>
-          <button
-            onClick={() => setCurrentPage(currentPage + 1)}
-            disabled={indexOfLastPost >= items.length}
-            className="flex items-center justify-center rounded-full p-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300"
-          >
-            <IoIosArrowForward size={25} />
-          </button>
+            ))}
+          </div>
+          <div className="flex justify-center mt-4">
+            {/* Pagination */}
+            <nav>
+              <ul className="pagination flex gap-2">
+                {[
+                  ...Array(
+                    Math.ceil(articlesData.length / postsPerPage)
+                  ).keys(),
+                ].map((number) => (
+                  <li key={number} className="page-item">
+                    <a
+                      onClick={() => paginate(number + 1)}
+                      href="#"
+                      className={`page-link ${
+                        currentPage === number + 1 ? "active" : ""
+                      }`}
+                    >
+                      {number + 1}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
-      </div>
-    </section>
+      )}
+    </div>
   );
-};
+}
 
-export default MyArticles;
+export default Blogs;

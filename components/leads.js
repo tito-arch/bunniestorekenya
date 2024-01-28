@@ -42,7 +42,7 @@ export default function Leads() {
   return (
     <div className="w-full sm:w-3/4 mx-auto mt-8">
       <hr />
-      <div className="w-full max-w-md mx-auto p-6  rounded-md">
+      <div className="w-full max-w-md mx-auto p-6  rounded-md" id="lead-form">
         <h1 className="text-3xl font-semibold mb-4 text-center">
           Get in Touch
         </h1>
@@ -84,10 +84,21 @@ export default function Leads() {
             <Input
               label="Budget"
               type="number"
-              placeholder="Enter your budget..."
-              {...form.register("budget", { required: true })}
-              className="w-full bg-transparent focus:outline-none transition-all duration-300"
+              placeholder="Enter your budget... $100 +"
+              {...form.register("budget", { required: true, min: 100 })}
+              className={`w-full bg-transparent focus:outline-none transition-all duration-300 ${
+                form.errors && form.errors.budget ? "border-red-500" : ""
+              }`}
             />
+            {form.errors && form.errors.budget && (
+              <div>
+                {console.log(form.errors.budget)}{" "}
+                {/* Log the errors to the console */}
+                <span className="text-red-500 block">
+                  {form.errors.budget.message || "Unknown error"}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Project Description */}

@@ -1,4 +1,3 @@
-import UnsplashImage from "@/src/api/UnsplashImage";
 import Image from "next/image";
 import Link from "next/link";
 import evolution from "../public/assets/evolution.png";
@@ -80,35 +79,7 @@ export default function Home() {
     <>
       <main className="flex min-h-screen flex-col p-5 gap-3 ">
         {/* Nav bar */}
-        <div className="flex flex-row justify-between m-3">
-          <div className=" flex flex-row gap-2 items-center justify-center">
-            {/* Logo */}
-            <Link href="/" legacyBehavior>
-              <a>
-                <div className="flex items-center">
-                  <Image
-                    src={logo}
-                    alt="BunnieABC"
-                    width={50}
-                    height={50}
-                    className="rounded-full"
-                  />
-                </div>
-              </a>
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <Link href="/" legacyBehavior>
-              <a className="hover:text-blue-500">Home</a>
-            </Link>
 
-            <Link href="/blog" legacyBehavior>
-              <a className=" font-bold bg-gray-200 hover:bg-blue-200 rounded p-2 px-5 py-1">
-                Blog
-              </a>
-            </Link>
-          </div>
-        </div>
         {/* Header */}
         <div style={gradientStyle} className="flex justify-center items-center">
           <p> Welcome to BunnieAbC</p>
@@ -234,9 +205,17 @@ export default function Home() {
               </AccordionTrigger>
               <AccordionContent>
                 To request a quote, please visit our Contact page or fill out
-                the inquiry form below. Provide as much detail as possible about
-                your project, and our team will get back to you promptly with a
-                customized quote.
+                the{" "}
+                <a
+                  href="#lead-form"
+                  style={{
+                    borderBottom: "4px solid green",
+                  }}
+                >
+                  inquiry form below
+                </a>
+                . Provide as much detail as possible about your project, and our
+                team will get back to you promptly with a customized quote.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
@@ -266,7 +245,7 @@ export default function Home() {
           <h2 className="pb-2 sm:pb-3 text-center text-3xl font-bold">
             Meet The Core Team
           </h2>
-          <div className="hidden sm:mx-5 mx-auto md:flex overflow-x-auto justify-center gap-4 bg-gradient-to-r from-white via-transparent to-white">
+          <div className="hidden sm:mx-5 mx-auto md:flex overflow-x-auto justify-center gap-4 bg-gradient-to-r from-white via-transparent to-white py-6">
             {teamMembers.map((member, index) => (
               <TeamCard key={index} {...member} />
             ))}
@@ -290,28 +269,8 @@ export default function Home() {
             <CarouselNext />
           </Carousel>
         </div>
-        <Leads />
+        <Leads id="leads-form" />
       </main>
-      <footer className="pt-3 px-5">
-        <div>
-          <Link href="/" legacyBehavior>
-            <a>
-              <div className="flex items-center">
-                <Image
-                  src={logo}
-                  alt="BunnieABC Logo"
-                  width={50}
-                  height={50}
-                  className="rounded-full"
-                />
-              </div>
-            </a>
-          </Link>
-          <p>Bunnie-LLC</p>
-          <small>Software Company</small>
-        </div>
-        <div></div>
-      </footer>
     </>
   );
 }
