@@ -5,22 +5,25 @@ import xml2js from "xml2js";
 const parseHtml = (html) => {
   const { document } = new JSDOM(html).window;
 
-  const title = document.querySelector("title").textContent;
-  const link = document
-    .querySelector('link[rel="canonical"]')
-    .getAttribute("href");
-  const image = document
-    .querySelector('meta[property="og:image"]')
-    .getAttribute("content");
-  const author = document
-    .querySelector('meta[name="author"]')
-    .getAttribute("content");
-  const description = document
-    .querySelector('meta[name="description"]')
-    .getAttribute("content");
-  const datePublished = document
-    .querySelector('meta[property="article:published_time"]')
-    .getAttribute("content");
+  const titleElement = document.querySelector("title");
+  const linkElement = document.querySelector('link[rel="canonical"]');
+  const imageElement = document.querySelector('meta[property="og:image"]');
+  const authorElement = document.querySelector('meta[name="author"]');
+  const descriptionElement = document.querySelector('meta[name="description"]');
+  const datePublishedElement = document.querySelector(
+    'meta[property="article:published_time"]'
+  );
+
+  const title = titleElement ? titleElement.textContent : null;
+  const link = linkElement ? linkElement.getAttribute("href") : null;
+  const image = imageElement ? imageElement.getAttribute("content") : null;
+  const author = authorElement ? authorElement.getAttribute("content") : null;
+  const description = descriptionElement
+    ? descriptionElement.getAttribute("content")
+    : null;
+  const datePublished = datePublishedElement
+    ? datePublishedElement.getAttribute("content")
+    : null;
 
   return {
     title,
@@ -52,24 +55,38 @@ const MyArticlesData = async () => {
     // Extract links from parsed XML data
     const links = parsedResult.rss.channel[0].item.map(({ link }) => link);
 
-    // Choose a sample link (in this case, the first link)
-    const sampleLink = links[0];
+    // Fetch and extract additional data for each link
+    const additionalDataList = await Promise.all(
+      links.map(async (link) => {
+        const response = await fetch(link);
+        const html = await response.text();
+        const articleData = parseHtml(html);
 
-    // Fetch more data from the sample link
-    const sampleLinkResponse = await fetch(sampleLink);
-    const sampleLinkHtml = await sampleLinkResponse.text();
+        // Check if the article contains useful information
+        if (
+          articleData.title &&
+          articleData.author &&
+          articleData.description &&
+          articleData.datePublished
+        ) {
+          return articleData;
+        } else {
+          // Return null for articles without useful information
+          return null;
+        }
+      })
+    );
 
-    // Log or process the additional data as needed
-    const additionalData = parseHtml(sampleLinkHtml);
-    console.log("Additional data from the sample link:", additionalData);
+    // Filter out articles with null values
+    const filteredDataList = additionalDataList.filter(
+      (article) => article !== null
+    );
 
-    // Construct the unordered list
-    const unorderedList = `<ul>${links
-      .map((link) => `<li><a href="${link}">${link}</a></li>`)
-      .join("")}</ul>`;
+    // Log or process the filtered data as needed
+    console.log("Filtered data for all links:", filteredDataList);
 
-    console.log(unorderedList); // Log the unordered list
-    return links;
+    // Return the filteredDataList instead of links
+    return filteredDataList;
   } catch (error) {
     console.error("Error fetching or parsing data:", error);
     return "<p>Error fetching articles. Please try again later.</p>";
