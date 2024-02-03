@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import evolution from "../public/assets/evolution.png";
 import chat from "../public/assets/chat.png";
 import app from "../public/assets/app.png";
-import logo from "../public/assets/logo.png";
+import { FaStackOverflow } from "react-icons/fa6";
+import { BsTwitterX } from "react-icons/bs";
+
 import {
   Accordion,
   AccordionContent,
@@ -26,44 +30,48 @@ import Leads from "@/components/leads";
 export default function Home() {
   const teamMembers = [
     {
+      name: "Shadrack",
+      role: "Technical Lead",
+      imageUrl: "/assets/Mwangi-Shadrack.jpeg",
+      githubUrl: "https://github.com/shadrackmwangi",
+      linkedInUrl: "https://linkedin.com/in/shadrack-mwangi-55a8b1b2",
+      xUrl: "",
+    },
+    {
       name: "Titus",
-      role: "Founder",
+      role: "Head of Product Design",
       imageUrl: "/assets/Ihwagi-Titus.jpeg",
+      githubUrl: "https://github.com/tito-arch",
+      stackOverflowUrl:
+        "https://stackoverflow.com/users/14888787/ethical-hacker",
+      linkedInUrl: "https://www.linkedin.com/in/ihwagi/",
     },
     {
       name: "Muna",
       role: "Co-Founder",
       imageUrl: "/assets/Muna-Said.jpeg",
+      githubUrl: "https://github.com/",
+      stackOverflowUrl: "https://stackoverflow.com",
+      linkedInUrl: "https://www.linkedin.com",
+      xUrl: "https://twitter.com",
     },
     {
-      name: "Titus",
-      role: "Founder",
-      imageUrl: "/assets/Ihwagi-Titus.jpeg",
+      name: "Brenda",
+      role: "Brand Manager",
+      imageUrl: "/assets/Bree-Cropped.jpeg",
+      githubUrl: "https://github.com/",
+      stackOverflowUrl: "https://stackoverflow.com",
+      linkedInUrl: "https://www.linkedin.com",
+      xUrl: "https://twitter.com",
     },
     {
-      name: "Muna",
+      name: "Peter",
       role: "Co-Founder",
-      imageUrl: "/assets/Muna-Said.jpeg",
-    },
-    {
-      name: "Titus",
-      role: "Founder",
-      imageUrl: "/assets/Ihwagi-Titus.jpeg",
-    },
-    {
-      name: "Muna",
-      role: "Co-Founder",
-      imageUrl: "/assets/Muna-Said.jpeg",
-    },
-    {
-      name: "Titus",
-      role: "Founder",
-      imageUrl: "/assets/Ihwagi-Titus.jpeg",
-    },
-    {
-      name: "Muna",
-      role: "Co-Founder",
-      imageUrl: "/assets/Muna-Said.jpeg",
+      imageUrl: "/",
+      githubUrl: "https://github.com/",
+      stackOverflowUrl: "https://stackoverflow.com",
+      linkedInUrl: "https://www.linkedin.com",
+      xUrl: "https://twitter.com",
     },
   ];
 
@@ -74,6 +82,14 @@ export default function Home() {
     backgroundClip: "text",
     fontWeight: "bold",
     fontSize: "2rem",
+  };
+
+  const scrollToLeads = () => {
+    const leadsFormSection = document.getElementById("leads-form");
+
+    if (leadsFormSection) {
+      leadsFormSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
   return (
     <>
@@ -91,7 +107,10 @@ export default function Home() {
               Large Enterprises
             </h1>
             <p>We are pushing the advent of businesses to the web </p>
-            <button className=" mx-auto sm:ml-0 flex items-center mt-4 justify-center rounded px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300">
+            <button
+              onClick={scrollToLeads}
+              className=" mx-auto sm:ml-0 flex items-center mt-4 justify-center rounded px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 active:scale-90 transition-transform duration-300"
+            >
               Learn More
             </button>
           </div>
@@ -172,7 +191,7 @@ export default function Home() {
           <h3 style={gradientStyle}>Nrb, KE</h3>
         </div>
         {/* Accordion */}
-        <div className="px-2">
+        <div className="px-2" id="faq">
           <p className="text-center text-lg font-bold">
             Frequently Asked Questions
           </p>
@@ -277,44 +296,65 @@ export default function Home() {
 
 // Co-Founders of Bunnie Abc card
 
-const TeamCard = ({ name, role, imageUrl }) => {
+const TeamCard = ({
+  name,
+  role,
+  imageUrl,
+  githubUrl,
+  stackOverflowUrl,
+  linkedInUrl,
+  xUrl,
+}) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg mx-auto">
       <div className="relative mb-4 flex mx-auto">
-        <Image
-          src={imageUrl}
-          alt={name}
-          width={200}
-          height={200}
-          className="rounded-full"
-        />
+        {imageUrl && (
+          <Image
+            src={imageUrl}
+            alt={name}
+            width={200}
+            height={200}
+            className="rounded-full"
+          />
+        )}
       </div>
       <div className="text-center">
         <h3 className="text-xl font-bold mb-2">{name}</h3>
         <p className="italic text-gray-600">{role}</p>
       </div>
       <div className="mt-4 flex justify-center">
-        <a
-          href="#"
-          target="_blank"
-          className="text-blue-500 hover:text-blue-700 mx-2"
-        >
-          <FaTwitter size={24} />
-        </a>
-        <a
-          href="#"
-          target="_blank"
-          className="text-blue-500 hover:text-blue-700 mx-2"
-        >
-          <FaLinkedin size={24} />
-        </a>
-        <a
-          href="#"
-          target="_blank"
-          className="text-gray-800 hover:text-gray-600 mx-2"
-        >
-          <FaGithub size={24} />
-        </a>
+        {stackOverflowUrl && (
+          <a href={stackOverflowUrl} target="_blank">
+            <FaStackOverflow size={24} />
+          </a>
+        )}
+        {xUrl && (
+          <a
+            href="#"
+            target="_blank"
+            className="text-blue-500 hover:text-blue-700 mx-2"
+          >
+            <BsTwitterX size={24} />
+          </a>
+        )}
+        {linkedInUrl && (
+          <a
+            href={linkedInUrl}
+            target="_blank"
+            className="text-blue-500 hover:text-blue-700 mx-2"
+          >
+            <FaLinkedin size={24} />
+          </a>
+        )}
+        {githubUrl && (
+          <a
+            href={githubUrl}
+            target="_blank"
+            className="text-black hover:text-blue-700 mx-2"
+          >
+            <FaGithub size={24} />
+          </a>
+        )}
       </div>
     </div>
   );

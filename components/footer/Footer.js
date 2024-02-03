@@ -32,13 +32,8 @@ function Footer() {
                 <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                   Product
                 </p>
-                <a
-                  href="#"
-                  className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
-                >
-                  Features
-                </a>
-                <a
+
+                {/* <a
                   href="#"
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
@@ -49,15 +44,21 @@ function Footer() {
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
                   Documentation
-                </a>
+                </a> */}
                 <a
-                  href="#"
+                  href="#faq"
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
                   FAQs
                 </a>
                 <a
                   href="#"
+                  className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
+                >
+                  L/L
+                </a>
+                <a
+                  href="#pricing"
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
                   Pricing
@@ -68,25 +69,20 @@ function Footer() {
                   About
                 </p>
                 <a
-                  href="#"
+                  href="https://www.bunnieabc.com/google/about/"
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
                   Our Story
                 </a>
+
                 <a
-                  href="#"
-                  className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
-                >
-                  Company
-                </a>
-                <a
-                  href="#"
+                  href="https://www.bunnieabc.com/google/cp/"
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
                   Privacy
                 </a>
                 <a
-                  href="#"
+                  href="/blog"
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
                   Blog
@@ -97,29 +93,20 @@ function Footer() {
                   Contact
                 </p>
                 <a
-                  href="#"
+                  href="#leads-form"
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
-                  Advertising
+                  Instant Chat
                 </a>
                 <a
-                  href="#"
+                  href="mailto:Newsroom@bunnieabc.com"
                   className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
                 >
                   Email
                 </a>
-                <a
-                  href="#"
-                  className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
-                >
-                  Partners
-                </a>
-                <a
-                  href="#"
-                  className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary"
-                >
-                  Jobs
-                </a>
+                <p className="flex mb-3 text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2 hover:text-primary">
+                  +1 (914) 502-3927
+                </p>
               </nav>
 
               <div className="col-span-3">
@@ -145,21 +132,21 @@ function Footer() {
             </div>
             <div className=" flex justify-center items-center my-3">
               <a
-                href="#"
+                href="https://twitter.com/BunnieABC"
                 target="_blank"
                 className="text-blue-500 hover:text-blue-700 mx-2"
               >
                 <FaTwitter size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/bunnie-abc/"
                 target="_blank"
                 className="text-blue-500 hover:text-blue-700 mx-2"
               >
                 <FaLinkedin size={24} />
               </a>
               <a
-                href="#"
+                href="https://github.com/orgs/Bunnie-LLC/"
                 target="_blank"
                 className="text-gray-800 hover:text-gray-600 mx-2"
               >
@@ -172,13 +159,13 @@ function Footer() {
               </p>
               <div className="flex items-start justify-start space-x-6 mx-auto">
                 <a
-                  href="#_"
+                  href="https://www.bunnieabc.com/google/cp/"
                   className="text-sm text-gray-600 transition hover:text-primary"
                 >
                   Terms
                 </a>
                 <a
-                  href="#_"
+                  href="https://www.bunnieabc.com/google/tc/"
                   className="text-sm text-gray-600 transition hover:text-primary"
                 >
                   Privacy
