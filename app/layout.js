@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import Nav from "@/components/nav/Nav";
 import React from "react";
+import MicrosoftClarity from "./metrics/ms-clarity";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         <Nav />
         {children}
         <Footer />
+        <MicrosoftClarity />
       </body>
       <Toaster richColors />
     </html>
