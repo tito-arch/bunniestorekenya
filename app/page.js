@@ -7,6 +7,7 @@ import chat from "../public/assets/chat.png";
 import app from "../public/assets/app.png";
 import { FaStackOverflow } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
+import { SlDocs } from "react-icons/sl";
 
 import {
   Accordion,
@@ -42,9 +43,10 @@ export default function Home() {
       role: "Head of Product Design",
       imageUrl: "/assets/Ihwagi-Titus.jpeg",
       githubUrl: "https://github.com/tito-arch",
-      stackOverflowUrl:
-        "https://stackoverflow.com/users/14888787/ethical-hacker",
+      // stackOverflowUrl:
+      //   "https://stackoverflow.com/users/14888787/ethical-hacker",
       linkedInUrl: "https://www.linkedin.com/in/ihwagi/",
+      personalPage: "https://tito-arch.github.io/",
     },
     {
       name: "Muna",
@@ -304,6 +306,7 @@ const TeamCard = ({
   stackOverflowUrl,
   linkedInUrl,
   xUrl,
+  personalPage,
 }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg mx-auto">
@@ -344,6 +347,15 @@ const TeamCard = ({
             className="text-blue-500 hover:text-blue-700 mx-2"
           >
             <FaLinkedin size={24} />
+          </a>
+        )}
+        {personalPage && (
+          <a
+            href={personalPage}
+            target="_blank"
+            className="text-blue-500 hover:text-blue-700 mx-2"
+          >
+            <SlDocs size={24} />
           </a>
         )}
         {githubUrl && (
