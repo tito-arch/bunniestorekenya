@@ -7,6 +7,8 @@ import chat from "../public/assets/chat.png";
 import app from "../public/assets/app.png";
 import { FaStackOverflow } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
+import { SlDocs } from "react-icons/sl";
+import { useState } from "react";
 
 import {
   Accordion,
@@ -25,9 +27,19 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+
+// components
 import Leads from "@/components/leads";
+import Pricing from "@/components/pricing";
 
 export default function Home() {
+  // selected plan state
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const handlePlanSelect = (plan) => {
+    setSelectedPlan(plan);
+  };
+
+  // console.log(selectedPlan)
   const teamMembers = [
     {
       name: "Shadrack",
@@ -42,9 +54,10 @@ export default function Home() {
       role: "Head of Product Design",
       imageUrl: "/assets/Ihwagi-Titus.jpeg",
       githubUrl: "https://github.com/tito-arch",
-      stackOverflowUrl:
-        "https://stackoverflow.com/users/14888787/ethical-hacker",
+      // stackOverflowUrl:
+      //   "https://stackoverflow.com/users/14888787/ethical-hacker",
       linkedInUrl: "https://www.linkedin.com/in/ihwagi/",
+      personalPage: "https://tito-arch.github.io/",
     },
     {
       name: "Muna",
@@ -95,7 +108,6 @@ export default function Home() {
     <>
       <main className="flex min-h-screen flex-col p-5 gap-3 ">
         {/* Nav bar */}
-
         {/* Header */}
         <div style={gradientStyle} className="flex justify-center items-center">
           <p> Welcome to BunnieAbC</p>
@@ -185,7 +197,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-
         <div className="w-full p-7 mx-0 bg-gradient-to-r from-black via-#C0C0C0 to-white">
           <h2 style={gradientStyle}>BunnieAbc</h2>
           <h3 style={gradientStyle}>Nrb, KE</h3>
@@ -288,7 +299,26 @@ export default function Home() {
             <CarouselNext />
           </Carousel>
         </div>
-        <Leads id="leads-form" />
+        <Pricing onSelectPlan={handlePlanSelect} />
+        <Leads id="leads-form" selectedPlan={selectedPlan} />
+        <div
+          style={{
+            background: "#f4f4f4",
+            padding: "10px",
+            borderRadius: "8px",
+            margin: "10px 0",
+          }}
+        >
+          <p>
+            BunnieAbc & it&apos;s Affiliates have the right to decline projects
+            not in line with their values. Eg LGBTQ
+          </p>
+          <p>
+            We fully support non-profits, such as environmental and
+            cancer-related initiatives, for free if accepted. Contact us for
+            more information.
+          </p>
+        </div>
       </main>
     </>
   );
@@ -304,6 +334,7 @@ const TeamCard = ({
   stackOverflowUrl,
   linkedInUrl,
   xUrl,
+  personalPage,
 }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg mx-auto">
@@ -344,6 +375,15 @@ const TeamCard = ({
             className="text-blue-500 hover:text-blue-700 mx-2"
           >
             <FaLinkedin size={24} />
+          </a>
+        )}
+        {personalPage && (
+          <a
+            href={personalPage}
+            target="_blank"
+            className="text-blue-500 hover:text-blue-700 mx-2"
+          >
+            <SlDocs size={24} />
           </a>
         )}
         {githubUrl && (
