@@ -108,7 +108,6 @@ export default function Home() {
     <>
       <main className="flex min-h-screen flex-col p-5 gap-3 ">
         {/* Nav bar */}
-
         {/* Header */}
         <div style={gradientStyle} className="flex justify-center items-center">
           <p> Welcome to BunnieAbC</p>
@@ -198,7 +197,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-
         <div className="w-full p-7 mx-0 bg-gradient-to-r from-black via-#C0C0C0 to-white">
           <h2 style={gradientStyle}>BunnieAbc</h2>
           <h3 style={gradientStyle}>Nrb, KE</h3>
@@ -303,6 +301,24 @@ export default function Home() {
         </div>
         <Pricing onSelectPlan={handlePlanSelect} />
         <Leads id="leads-form" selectedPlan={selectedPlan} />
+        <div
+          style={{
+            background: "#f4f4f4",
+            padding: "10px",
+            borderRadius: "8px",
+            margin: "10px 0",
+          }}
+        >
+          <p>
+            BunnieAbc & it&apos;s Affiliates have the right to decline projects
+            not in line with their values. Eg LGBTQ
+          </p>
+          <p>
+            We fully support non-profits, such as environmental and
+            cancer-related initiatives, for free if accepted. Contact us for
+            more information.
+          </p>
+        </div>
       </main>
     </>
   );
