@@ -5,12 +5,21 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "sonner";
 
-export default function Leads() {
+export default function Leads({ id, selectedPlan }) {
   const form = useForm();
   // toast(".") // This will show a success toast
-
+  // Initialize planDetails with the selected plan
+  const initialValues = {
+    ...form.getValues(),
+    projectDescription: {
+      ...form.getValues("projectDescription"),
+      planDetails: selectedPlan ? JSON.stringify(selectedPlan) : "",
+    },
+  };
   const onSubmit = async (formData) => {
     try {
+      // Append selected plan if any exist.
+
       const response = await axios.post(
         "https://bunnie-llc.vercel.app/submit-form",
         formData,
@@ -27,6 +36,8 @@ export default function Leads() {
         toast.message("Request submitted successfully", {
           description: new Date().toLocaleString(),
         });
+
+        console.log(selectedPlan);
         // Reset the form
         form.reset();
       } else {
@@ -38,6 +49,7 @@ export default function Leads() {
       toast.error("Form submission failed: Server Error");
     }
   };
+  // console.log(selectedPlan);
 
   return (
     <div className="w-full sm:w-3/4 mx-auto mt-8">
