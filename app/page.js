@@ -8,6 +8,7 @@ import app from "../public/assets/app.png";
 import { FaStackOverflow } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 import { SlDocs } from "react-icons/sl";
+import { useState } from "react";
 
 import {
   Accordion,
@@ -26,9 +27,19 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+
+// components
 import Leads from "@/components/leads";
+import Pricing from "@/components/pricing";
 
 export default function Home() {
+  // selected plan state
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const handlePlanSelect = (plan) => {
+    setSelectedPlan(plan);
+  };
+
+  // console.log(selectedPlan)
   const teamMembers = [
     {
       name: "Shadrack",
@@ -290,7 +301,8 @@ export default function Home() {
             <CarouselNext />
           </Carousel>
         </div>
-        <Leads id="leads-form" />
+        <Pricing onSelectPlan={handlePlanSelect} />
+        <Leads id="leads-form" selectedPlan={selectedPlan} />
       </main>
     </>
   );
